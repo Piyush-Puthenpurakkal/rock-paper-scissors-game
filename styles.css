@@ -1,0 +1,326 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #8BC34A;
+    color: #fff;
+}
+
+.game-container {
+    margin: 20px 540px;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: #8BC34A;
+    color: white;
+    margin: 70px 260px;
+    width: 60%;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: left;
+    line-height: 1.2;
+    margin: 0;
+    padding: 0;
+}
+
+#round-setter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#rounds {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    width: 100px;
+}
+
+/* Scoreboard */
+#scoreboard {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: white;
+    color: #000;
+    width: 120px;
+    height: 80px;
+}
+
+.score-container p {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.score-container span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#scoreboard.hidden {
+    display: none;
+}
+
+#round-setter.hidden {
+    display: none;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #8BC34A;
+    color: white;
+}
+
+#choices {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.choice img {
+    width: 50%;
+    height: 50%;
+}
+
+/* Positioning the buttons to form a triangle */
+.choice:nth-child(1) {
+    top: 2%;
+    left: 47%;
+    transform: translateX(-160%);
+    border: 15px solid #2a73e1;
+}
+
+.choice:nth-child(2) {
+    bottom: -6%;
+    left: 20%;
+    border: 15px solid #f08c00;
+}
+
+.choice:nth-child(3) {
+    bottom: 53%;
+    right: -10%;
+    border: 15px solid #9c27b0;
+}
+
+/* Adding connecting lines to form a triangle */
+#choices::before,
+#choices::after {
+    content: '';
+    position: absolute;
+    background-color: #333;
+    z-index: -1;
+}
+
+/* Line from Rock to Paper */
+#choices::before {
+    width: 14px;
+    height: 200px;
+    top: 40px;
+    left: 71%;
+    transform: translateX(-50%) rotate(44deg);
+}
+
+/* Line from Rock to Scissors */
+#choices::after {
+    width: 14px;
+    height: 200px;
+    top: 40px;
+    right: 87%;
+    transform: translateX(50%) rotate(-40deg);
+}
+
+/* Horizontal line (Paper to Scissors) */
+.line-horizontal {
+    position: absolute;
+    bottom: 74%;
+    left: 20%;
+    width: 45%;
+    height: 14px;
+    background-color: #333;
+}
+
+.button {
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.button img {
+    width: 60%;
+}
+
+.hidden {
+    display: none;
+}
+
+#result-display {
+    margin-top: 50px;
+}
+
+.result-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.picked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border: 5px solid transparent;
+    position: relative;
+}
+
+.circle.rock {
+    border: 15px solid #2a73e1;
+}
+
+.circle.paper {
+    border: 15px solid #f08c00;
+}
+
+.circle.scissors {
+    border: 15px solid #9c27b0;
+}
+
+.circle img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.circle p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Winner glow effect */
+@keyframes green-glow {
+    0% {
+        box-shadow: 0 0 0px 10px rgba(0, 128, 0, 0.5),
+            0 0 0px 20px rgba(50, 205, 50, 0.3),
+            0 0 0px 30px rgba(144, 238, 144, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 10px 20px rgba(0, 128, 0, 0.7),
+            0 0 20px 40px rgba(50, 205, 50, 0.5),
+            0 0 30px 60px rgba(144, 238, 144, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0px 10px rgba(0, 128, 0, 0.5),
+            0 0 0px 20px rgba(50, 205, 50, 0.3),
+            0 0 0px 30px rgba(144, 238, 144, 0.1);
+    }
+}
+
+.circle.animate {
+    animation: green-glow 1.5s infinite;
+    border-radius: 50%;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#rules-image {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: -5px;
+    width: 300px;
+    border-radius: 10px;
+}
+
+#rules-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+#play-again {
+    width: 140px;
+    background-color: white;
+    color: black;
+}
+
+#play-again:hover {
+    background-color: transparent;
+    color: white;
+}

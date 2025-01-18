@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hurray! You Won!</title>
+    <link rel="stylesheet" href="win.css">
+</head>
+
+<body style="background-color:#8BC34A;">
+    <div class="endgame-page" style="text-align: center;  padding: 20px; font-family: Arial, sans-serif;">
+
+        <div style="position: relative; display: inline-block; margin: 20px;">
+            <!-- Stars Image -->
+            <img src="assets/stars.png" alt="Stars" style="width: 400px; height: auto;">
+            <!-- Trophy Image -->
+            <img src="assets/trophy.png" alt="Trophy" style="position: absolute; top: 75px;
+                left: 120px;
+                width: 165px; height: auto; z-index: 10;">
+        </div>
+        <div style="color: white; font-size: 65px; top: 10%;">HURRAY!! </div>
+        <div style="color: white; font-size: 29px; top: 30%;">YOU WON THE GAME</div>
+
+
+        <button onclick="location.href='index.html'" style="
+            padding: 10px 35px; 
+            font-size: 16px; 
+            background-color: white; 
+            color: black; 
+            border: 1px solid white; 
+            cursor: pointer; 
+            border-radius: 8px;
+            position: absolute; /* Absolute positioning */
+            bottom: 20px; /* Position at the bottom */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); "
+            onMouseOver="this.style.color='white'; this.style.backgroundColor='transparent' "
+            onMouseOut="this.style.color='black'; this.style.backgroundColor='white'">Play Again</button>
+    </div>
+
+    <footer style="position: fixed; bottom: 20px; right: 20px; ">
+        <button id="rules-btn" style="padding: 10px 20px;
+        border-radius: 5px;
+        border: 1px solid white;
+        background-color: transparent;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;" onMouseOver="this.style.color='black'; this.style.backgroundColor='white' "
+            onMouseOut="this.style.color='white'; this.style.backgroundColor='transparent'">RULES</button>
+        <img id="rules-image" src="assets/rules.png" alt="Game Rules" style="display: none;
+        position: absolute;
+        bottom: 60px;
+        right: -5px;
+        width: 300px;
+        border-radius: 10px;">
+    </footer>
+    <script>
+        let rulesButton = document.getElementById("rules-btn");
+        let rulesImage = document.getElementById("rules-image");
+
+        toggleRules = () => {
+            rulesImage.style.display =
+                rulesImage.style.display === "none" || rulesImage.style.display === ""
+                    ? "block"
+                    : "none";
+        };
+
+        rulesButton.addEventListener("click", toggleRules);
+    </script>
+</body>
+
+</html>
