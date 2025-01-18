@@ -13,7 +13,7 @@ A fun and interactive Rock-Paper-Scissors game built with HTML, CSS, and JavaScr
 3. The winner is displayed with a glowing effect.
 
 ## Live Demo
-[Play Here](https://github.com/Piyush-Puthenpurakkal/rock-paper-scissors-game)
+[Play Here](https://Piyush-Puthenpurakkal.github.io/rock-paper-scissors-game)
 
 ## Setup
 1. Clone this repository:
